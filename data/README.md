@@ -1,4 +1,4 @@
-<!-- Hero -->
+<!-- Hero ✅-->
 Hey, I'm [Your Name] 👋
 
 # Crafting performant, accessible web apps — always eager to explore new technologies.
@@ -7,9 +7,9 @@ Frontend Developer specializing in React, TypeScript, and modern CSS. I build re
 
 [ View Projects ]   [ Contact Me ]
 
-Core Stack: React • Next.js • TypeScript • Tailwind CSS
+Core Stack: Tailwind CSS • JavaScript • TypeScript • React • Next.js 
 
-<!-- career jouney -->
+<!-- career jouney ✅-->
 # Career Journey
 
 General Skill:
@@ -48,13 +48,8 @@ Integrating AI model such as gemini into a web app
 # Education 
 
 [Self-Learning]
-Learning by reading books, joining e-courses related to my goal
-
-[LPK Kiraboshi]
-Learning japanese language until level N5 and being trained to be japanese-diciplined person in order could adapt in japanese workspace in Japan 
+Learning JavaScript Tutorial from youtube channel Web Programming Unpas. 
 
 [Ahadamy Code]  
 Learning to build modern, responsive, attractive and learning how to solve problem in web development
-
-[Web Programming Unpas]
-Learning to integrate AI 
+ 
