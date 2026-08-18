@@ -1,3 +1,5 @@
+<!-- navbar ✅-->
+
 <!-- Hero ✅-->
 Hey, I'm [Your Name] 👋
 

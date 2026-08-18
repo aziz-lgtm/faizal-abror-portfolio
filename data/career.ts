@@ -2,7 +2,7 @@
 
 export const career  ={ 
   title: "Career Journey",
-  subtitle: "A visual timeline of key milestones and experiences from over the years.",
+  subtitle: "A visual timeline of key milestones and experiences from over the years. I have general skills and core skills that will be breakdown as follows",
   generalSkills: [
   {
     title: "Fruit Hawker",

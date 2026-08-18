@@ -5,7 +5,7 @@ import { skillsData } from "@/data/techsStack";
 
 export default function SkillBars() {
   return (
-    <section className="relative w-full py-16 bg-[#0B0F19] overflow-hidden">
+    <section className="relative w-full pt-1 pb-22 bg-[#0B0F19] overflow-hidden">
       
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900 via-[#0B0F19] to-[#0B0F19]" />
 
