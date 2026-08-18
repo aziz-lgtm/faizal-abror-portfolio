@@ -1,7 +1,7 @@
 export const contact = {
   title: "Let's build something together.",
   description:
-    "Whether you have a project in mind, need a mentor, or just want to chat about AI and space — I'm all ears.",
+    "Whether you're looking for a developer to join your team, or just want to chat about React, Next.js, and web dev — I'm all ears",
   link: [
     {
       email: "azizamad0208@gmail.com",
