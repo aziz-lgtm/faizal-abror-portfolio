@@ -7,6 +7,7 @@ import Projects from '@/components/Projects';
 import Role from '@/components/Role'
 import TechStack from '@/components/TechStack'
 import Career from '@/components/Career'
+import SkillBars from '@/components/SkillBars';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
     <Role />
     <Projects />
     <TechStack />
+    <SkillBars />
     <Contact />
     <Footer />
     </>
