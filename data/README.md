@@ -1,3 +1,16 @@
+
+<!-- data accuracy: -->
+<!-- navbar✅ -->
+<!-- hero✅ -->
+<!-- career✅ -->
+<!-- education -->
+<!-- what i do -->
+<!-- project -->
+<!-- tech stacks -->
+<!-- contact✅ -->
+<!-- footer✅ -->
+
+
 <!-- navbar ✅-->
 
 <!-- Hero ✅-->
