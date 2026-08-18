@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const NAV_ITEMS = [
   { id: "hero", label: "Home" },
-  { id: "roles", label: "Roles" },
+  { id: "what-i-do", label: "What I Do" },
   { id: "projects", label: "Projects" },
   { id: "tech", label: "Tech Stack" },
   { id: "contact", label: "Contact" },

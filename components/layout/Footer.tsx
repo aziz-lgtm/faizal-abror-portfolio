@@ -1,11 +1,12 @@
 import React from 'react';
 
-export default function Footer() {
+export default function CopyrightFooter() {
     return (
-        <footer className="border-t border-gray-800 bg-gray-900 text-white">
+        <footer className="border-t border-white/5 bg-[#030712]">
             <div className="max-w-7xl mx-auto px-6 py-8">
                 {/* Copyright - bawah */}
-                <div className="mt-6 pt-4 border-t border-gray-800 text-center text-sm text-gray-500"> Faizal Abror - Frontend Web Developer 
+                <div className="text-center text-sm text-gray-500">
+                    Faizal Abror - Software Engineer
                 </div>
             </div>
         </footer>

@@ -34,7 +34,7 @@ const getSkillIcon = (title: string) => {
 
 export default function Career() {
   return (
-    <section className="w-full max-w-6xl mx-auto px-4 py-16 bg-slate-950 text-slate-100 font-sans" id="roles">
+    <section className="w-full max-w-6xl mx-auto px-4 py-16 bg-slate-950 text-slate-100 font-sans">
       {/* Header */}
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
