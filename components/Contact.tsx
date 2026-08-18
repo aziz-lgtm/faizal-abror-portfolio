@@ -25,7 +25,7 @@ export default function Footer() {
   return (
     <section
       id="contact"
-      className="relative bg-[#030712] text-white border-t border-white/5 py-24 px-6"
+      className="relative bg-transparent text-white border-t border-white/5 py-24 px-6"
     >
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">

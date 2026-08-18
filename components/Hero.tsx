@@ -2,7 +2,7 @@ import {hero} from "@/data/hero";
 
 export default function Hero() {
   return (
-    <section className="bg-gray-900 text-white min-h-[calc(100vh-64px)] flex items-center" id="hero">
+    <section className="bg-transparent text-white min-h-[calc(100vh-64px)] flex items-center" id="hero">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         
         {/* Subtitle - "Hey, I'm ..." */}

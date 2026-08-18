@@ -36,7 +36,7 @@ export default function ProjectsSection() {
   const [active, setActive] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="relative min-h-screen bg-[#030712] text-white py-24 px-6 md:px-12 lg:px-24">
+    <section id="projects" className="relative min-h-screen bg-transparent text-white py-24 px-6 md:px-12 lg:px-24">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div

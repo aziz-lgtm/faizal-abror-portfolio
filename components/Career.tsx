@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import { career } from '@/data/career';
 import {
   Carousel,
@@ -34,7 +33,7 @@ const getSkillIcon = (title: string) => {
 
 export default function Career() {
   return (
-    <section className="w-full max-w-6xl mx-auto px-4 py-16 bg-slate-950 text-slate-100 font-sans">
+    <section className="w-full max-w-6xl mx-auto px-4 py-16 bg-transparent text-slate-100 font-sans">
       {/* Header */}
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3">

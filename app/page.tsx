@@ -1,5 +1,4 @@
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
+
 import Contact from '@/components/Contact';
 import Hero from '@/components/Hero';
 import Education from '@/components/Education';
@@ -13,7 +12,6 @@ import SkillBars from '@/components/SkillBars';
 function App() {
   return (
     <>
-    <Navbar />
     <Hero />
     <Career />
     <Education />
@@ -22,7 +20,6 @@ function App() {
     <TechStack />
     <SkillBars />
     <Contact />
-    <Footer />
     </>
   );
 }
