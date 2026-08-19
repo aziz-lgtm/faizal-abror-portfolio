@@ -14,10 +14,17 @@ export default function Navbar() {
   const [active, setActive] = useState("hero");
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const scrollToSection = (id: string) => {
+    const scrollToSection = (id: string) => {
     setActive(id);
     setMenuOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const navbarOffset = 96; // adjust to match your navbar's actual height + spacing
+    const y = el.getBoundingClientRect().top + window.scrollY - navbarOffset;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
   };
 
   return (

@@ -2,7 +2,7 @@ import {hero} from "@/data/hero";
 
 export default function Hero() {
   return (
-    <section className="bg-transparent text-white flex items-center" id="hero">
+    <section className="bg-transparent sm:pb-15 text-white flex items-center" id="hero">
       <div className="max-w-6xl mx-auto mt-23 mb-4 md:mt-23 md:mb-4 xl:mt-28 px-4 sm:px-6 lg:px-8 ">
         
         {/* Subtitle - "Hey, I'm ..." */}
@@ -11,12 +11,12 @@ export default function Hero() {
         </p>
 
         {/* Main Heading - bold, large */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight mb-4">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl sm:font-semibold sm:leading-tight md:font-bold lg:font-bold xl:font-semibold xl:leading-25 tracking-tight mb-4">
           {hero.title}
         </h1>
 
         {/* Description */}
-        <p className="text-sm sm:text-base md:text-xl sm:font-medium xl:font-semibold text-gray-300 max-w-2xl leading-relaxed mb-8">
+        <p className="text-sm sm:text-base md:text-xl sm:font-medium xl:font-light sm:leading-normal text-gray-300 max-w-2xl leading-tight mb-8">
           {hero.subtitle}
         </p>
 

@@ -27,7 +27,7 @@ export default function WhatIDoSection() {
   const activeCategory = whatIDoData.categories.find((c) => c.id === activeTab);
 
   return (
-    <section id="what-i-do" className="relative bg-transparent text-white py-4 px-6 md:px-12 lg:px-24">
+    <section id="what-i-do" className="relative bg-transparent text-white pt-4 pb-4 sm:pb-10 px-6 md:px-12 lg:px-24">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <motion.h2

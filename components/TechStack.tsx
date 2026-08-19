@@ -7,7 +7,7 @@ import { skillsData } from "@/data/techsStack";
 
 export default function TechStack() {
   return (
-    <section className="relative w-full pt-22 pb-1 bg-transparent overflow-hidden flex flex-col items-center" id="tech">
+    <section className="relative w-full pt-1 pb-1 bg-transparent overflow-hidden flex flex-col items-center" id="tech">
       {/* Background Starfield */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900 via-[#0B0F19] to-[#0B0F19]" />
 
@@ -27,7 +27,7 @@ export default function TechStack() {
       {/* ======================================= */}
       {/* SOLAR SYSTEM CONTAINER */}
       {/* ======================================= */}
-      <div className="relative -pt-5 flex items-center justify-center w-full h-[400px] md:h-[700px] max-w-6xl">
+      <div className="relative -pt-5 sm:-mt-10 flex items-center justify-center w-full h-[400px] md:h-[700px] max-w-6xl">
         
         {/* CENTER CORE: Laptop Logo */}
         <div className="absolute z-10 flex items-center justify-center w-10 h-10 sm:w-20 sm:h-20 bg-slate-900/90 backdrop-blur-md border border-cyan-500/50 rounded-full shadow-[0_0_30px_10px_rgba(6,182,212,0.4)]">
