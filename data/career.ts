@@ -51,7 +51,7 @@ export const career = {
       year: "2019 - Present",
       place: ["Self-Employed", "Ahademy Code"],
       description: "Crafting modern, responsive, and user-centric web experiences",
-      skills: ["HTML", "JavaScript", "TypeScript", "React", "Next.js", "Problem Solving", "Analytical Skill", "Critical Thinking"],
+      skills: ["HTML", "Tailwind", "JavaScript", "TypeScript", "React", "Next.js", "Shadcn", "Framer Motion", "Tanstack React", "Etc."],
     },
   ],
 };

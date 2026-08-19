@@ -8,14 +8,14 @@ export const education = {
     title: "Fundamental JavaScript",
     institution: "Self-Learning",
     year: "2019",
-    description: "Learning JavaScript Tutorial from youtube channel Web Programming Unpas.",
+    description: "Engaging Fundamental Javascript through many sources",
     skills: ["JavaScript"],
   },
   {
     title: "Web Development",
     institution: "Ahadamy Code",
     year: "February 2026 - Present",
-    description: "Leading and Monitoring the events & programs to make sure everything is going well",
+    description: ["Pursuing a comprehensive Software Enginering with focus on Frontend Development",],
     skills: ["HTML", "CSS", "Tailwind CSS", "JavaSript", "TypeScript", "React", "Radix UI", "Next.js", "Figma", "Git" ],
   },
 ]

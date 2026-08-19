@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
 import { career } from '@/data/career';
 import {
   Carousel,
@@ -42,13 +43,13 @@ export default function Career() {
   const [activeSkill, setActiveSkill] = useState<GeneralSkill | null>(null);
 
   return (
-    <section className="w-full max-w-6xl mx-auto px-4 py-16 bg-transparent text-slate-100 font-sans">
+    <section className="w-full max-w-6xl mx-auto px-4 mt-16 mb-0 bg-transparent text-slate-100 font-sans">
       {/* Header */}
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-3 sm:mt-1">
           {career.title}
         </h2>
-        <p className="text-slate-400 text-sm md:text-base max-w-xl mx-auto">
+        <p className="text-slate-400 text-sm sm:text-base md:text-lg max-w-xl mx-auto">
           {career.subtitle}
         </p>
       </div>
@@ -58,9 +59,9 @@ export default function Career() {
 
         {/* Top Bar: General Skills (Horizontal Carousel using Shadcn UI) */}
         <div className="w-full bg-slate-900/80 backdrop-blur-md border border-slate-800/80 rounded-3xl p-6 md:p-8 shadow-2xl relative">
-          <div className="text-center mb-6">
+          <div className="text-center mb-6 ">
             <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold tracking-wider uppercase">
-              General Skills: Breadth of Experience
+              Broad Skills
             </span>
           </div>
 
@@ -87,24 +88,28 @@ export default function Career() {
                       </div>
                     </div>
 
+                    
                     <button
                       onClick={() => setActiveSkill(item)}
                       className="mt-1 text-xs font-semibold text-indigo-300 border border-indigo-500/30 bg-indigo-500/10 px-4 py-2 rounded-full hover:bg-indigo-500/20 hover:border-indigo-500/50 transition-colors"
                     >
                       See Detail
                     </button>
+                    <div className="inline-flex">
+                    <span className="mt-1 text-sm font-extralight text-indigo-300 border border-indigo-500/30 bg-indigo-500/10 px-4 py-2 rounded-full hover:bg-indigo-500/20 hover:border-indigo-500/50 transition-colors inline-flex sm:hidden items-center"><ChevronRight size={15} /><ChevronRight size={15} className="-ml-5" /><ChevronRight size={15} className="-ml-5" /></span>
+                    </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute -left-3 bg-slate-800 border-slate-700 text-white hover:bg-slate-700 hover:text-white" />
-            <CarouselNext className="absolute -right-3 bg-slate-800 border-slate-700 text-white hover:bg-slate-700 hover:text-white" />
+            <CarouselPrevious className="hidden sm:inline-flex sm:absolute sm:-left-3 sm:bg-slate-800 sm:border-slate-700 sm:text-white sm:hover:bg-slate-700 sm:hover:text-white" />
+            <CarouselNext className="hidden sm:inline-flex sm:absolute sm:-right-3 sm:bg-slate-800 sm:border-slate-700 sm:text-white sm:hover:bg-slate-700 sm:hover:text-white" />
           </Carousel>
         </div>
 
         {/* Vertical T-Connector / Arrow */}
         <div className="flex flex-col items-center my-4">
-          <div className="w-1 h-12 bg-gradient-to-b from-indigo-500 to-indigo-600 shadow-[0_0_12px_rgba(99,102,241,0.6)]"></div>
+          <div className=""></div>
           <div className="w-8 h-8 rounded-full bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center -mt-2 shadow-[0_0_15px_rgba(99,102,241,0.4)]">
             <ArrowDown className="w-4 h-4 text-indigo-400 animate-bounce" />
           </div>
@@ -114,18 +119,20 @@ export default function Career() {
         <div className="w-full max-w-md bg-indigo-950/20 backdrop-blur-md border border-indigo-500/30 rounded-3xl p-6 md:p-8 shadow-2xl relative">
           <div className="text-center mb-6">
             <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold tracking-wider uppercase">
-              Deep Skills: Software Engineering
+              Specialised Skill 
+              <br />
+              <span className="sm:text-xl hidden">Software Engineering</span>
             </span>
           </div>
 
           {career.deepSkills.map((ds, index) => (
             <div key={index} className="flex flex-col items-center">
               <div className="flex items-center gap-3 mb-2">
-                <div className="p-3 rounded-2xl bg-indigo-900/40 border border-indigo-500/40 shadow-lg text-indigo-300">
+                <div className="hidden sm:inline-flex sm:p-3 sm:rounded-2xl sm:bg-indigo-900/40 sm:border sm:border-indigo-500/40 sm:shadow-lg sm:text-indigo-300">
                   <Code className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-white text-center md:text-left">{ds.title}</h3>
+                  <h3 className="font-bold text-lg text-white text-left md:text-left">{ds.title}</h3>
                   <p className="text-xs text-indigo-200 text-center md:text-left">{ds.description}</p>
                 </div>
               </div>

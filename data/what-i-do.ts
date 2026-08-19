@@ -6,7 +6,7 @@ export const whatIDoData = {
       title: "core activity",
       points: [
         "Continuously upgrading web development skills, actively building projects using React, Next.js, and TypeScript.",
-        "Actively mastering full-stack architecture by building end-to-end web applications with React, Next.js, Node.js, and relational databases.",
+        "Actively mastering full-stack architecture by building end-to-end web applications with React, Next.js, Supabase, and relational databases.",
         "Actively mastering how to integrate generative AI models and LLM APIs (such as OpenAI, Anthropic, or Hugging Face) into web interfaces to create intelligent user workflows.",
       ],
     },

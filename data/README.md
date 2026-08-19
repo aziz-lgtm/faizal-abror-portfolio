@@ -1,14 +1,14 @@
 
-<!-- data accuracy: -->
-<!-- navbar✅ -->
-<!-- hero✅ -->
-<!-- career✅ -->
+<!-- responsivity: -->
+<!-- navbar -->
+<!-- hero -->
+<!-- career -->
 <!-- education -->
 <!-- what i do -->
 <!-- project -->
 <!-- tech stacks -->
-<!-- contact✅ -->
-<!-- footer✅ -->
+<!-- contact -->
+<!-- footer -->
 
 
 <!-- navbar ✅-->
