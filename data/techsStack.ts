@@ -5,6 +5,7 @@ export const tech = {
 
 export const skillsData = [
   { name: "HTML", percentage: 98 },
+  { name: "Claude/AI Agent", percentage: 98 },
   { name: "Git", percentage: 95 },
   { name: "Tailwind", percentage: 88 },
   { name: "React", percentage: 85 },

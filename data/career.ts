@@ -3,18 +3,18 @@ export const career = {
   subtitle: "A visual timeline of key milestones and experiences from over the years. I have general skills and core skills that will be breakdown as follows",
   generalSkills: [
     {
-      title: "Fruit Hawker",
-      year: "2017",
-      place: ["Self-Employed"],
-      description: "Operated as an independent fruit hawker, responsible for sourcing, transporting, and directly selling melons to customers through daily field engagement and negotiation.",
-      skills: ["Negotiation", "Persuasion", "Analytical Thinking"],
-    },
-    {
       title: "Chief, Vice Chief",
       year: "2017 - 2024",
       place: ["Quranic Education Center for Children", "Islamic Youth Society", "Community Youth Development"],
       description: "Acted as the primary point of contact for members, resolving internal challenges and fostering a positive, productive environment for all participants.",
       skills: ["Leadership", "Persuasion", "Public Speaking", "Controlling Emotion"],
+    },
+    {
+      title: "Fruit Hawker",
+      year: "2017",
+      place: ["Self-Employed"],
+      description: "Operated as an independent fruit hawker, responsible for sourcing, transporting, and directly selling melons to customers through daily field engagement and negotiation.",
+      skills: ["Negotiation", "Persuasion", "Analytical Thinking"],
     },
     {
       title: "Property Broker",

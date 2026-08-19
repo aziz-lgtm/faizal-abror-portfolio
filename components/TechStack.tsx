@@ -86,28 +86,35 @@ export default function TechStack() {
           </motion.div>
         </motion.div>
 
-        {/* 1ST (OUTER) CIRCLE: HTML & Git */}
-        <motion.div
-          className="absolute w-70 h-70 sm:w-[540px] sm:h-[540px] border border-cyan-900/20 rounded-full"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-        >
-          <div className="absolute bottom-0 left-1/2 -ml-1 w-2 h-2 bg-purple-500 rounded-full shadow-[0_0_10px_2px_rgba(168,85,247,0.8)]" />
-          <motion.div
-            className="absolute -top-8 left-1/2 -ml-8 flex items-center justify-center w-16 h-16 bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-xl shadow-lg"
-            animate={{ rotate: -360 }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          >
-            <Image src="/tech-stack/html.png" alt="HTML" width={40} height={40} className="object-contain w-10 h-10" />
-          </motion.div>
-          <motion.div
-            className="absolute -bottom-8 left-1/2 -ml-8 flex items-center justify-center w-16 h-16 bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-xl shadow-lg"
-            animate={{ rotate: -360 }}
-            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-          >
-            <Image src="/tech-stack/git.png" alt="Git" width={40} height={40} className="object-contain w-10 h-10" />
-          </motion.div>
-        </motion.div>
+        {/* 1ST (OUTER) CIRCLE: HTML, Claude/AI Agent & Git */}
+<motion.div
+  className="absolute w-70 h-70 sm:w-[540px] sm:h-[540px] border border-cyan-900/20 rounded-full"
+  animate={{ rotate: 360 }}
+  transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+>
+  <div className="absolute bottom-0 left-1/2 -ml-1 w-2 h-2 bg-purple-500 rounded-full shadow-[0_0_10px_2px_rgba(168,85,247,0.8)]" />
+  <motion.div
+    className="absolute -top-8 left-1/2 -ml-8 flex items-center justify-center w-16 h-16 bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-xl shadow-lg"
+    animate={{ rotate: -360 }}
+    transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+  >
+    <Image src="/tech-stack/html.png" alt="HTML" width={40} height={40} className="object-contain w-10 h-10" />
+  </motion.div>
+  <motion.div
+    className="absolute top-1/2 -left-8 -mt-8 flex items-center justify-center w-16 h-16 bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-xl shadow-lg"
+    animate={{ rotate: -360 }}
+    transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+  >
+    <Image src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/claude-ai.svg" alt="Claude/AI Agent" width={40} height={40} className="object-contain w-10 h-10" />
+  </motion.div>
+  <motion.div
+    className="absolute -bottom-8 left-1/2 -ml-8 flex items-center justify-center w-16 h-16 bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-xl shadow-lg"
+    animate={{ rotate: -360 }}
+    transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+  >
+    <Image src="/tech-stack/git.png" alt="Git" width={40} height={40} className="object-contain w-10 h-10" />
+  </motion.div>
+</motion.div>
 
       </div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900 via-[#0B0F19] to-[#0B0F19]" />
