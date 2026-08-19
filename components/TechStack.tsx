@@ -14,8 +14,8 @@ export default function TechStack() {
       {/* ======================================= */}
       {/* TITLE & SUBTITLE (Now safely stacked above) */}
       {/* ======================================= */}
-      <div className="relative z-20 w-full max-w-6xl px-6 md:px-12 mb-12">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-3 sm:mt-1 text-left">
+      <div className="relative z-20 w-full max-w-6xl px-6 md:px-12 mb-1">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-1 sm:mt-1 text-left">
           {tech.title}
         </h1>
         <p className="text-slate-300 text-base md:text-lg max-w-mdtext-slate-400 text-sm sm:text-base md:text-lg max-w-md sm:text-left">
@@ -27,7 +27,7 @@ export default function TechStack() {
       {/* ======================================= */}
       {/* SOLAR SYSTEM CONTAINER */}
       {/* ======================================= */}
-      <div className="relative flex items-center justify-center w-full h-[600px] md:h-[700px] max-w-6xl">
+      <div className="relative -pt-5 flex items-center justify-center w-full h-[400px] md:h-[700px] max-w-6xl">
         
         {/* CENTER CORE: Laptop Logo */}
         <div className="absolute z-10 flex items-center justify-center w-10 h-10 sm:w-20 sm:h-20 bg-slate-900/90 backdrop-blur-md border border-cyan-500/50 rounded-full shadow-[0_0_30px_10px_rgba(6,182,212,0.4)]">
