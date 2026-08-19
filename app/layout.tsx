@@ -29,6 +29,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={cn("h-full", "w-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", figtree.variable)}
     >
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      </head>
       <body className="min-h-full w-full flex flex-col ">
 
         <NetworkBackground />
