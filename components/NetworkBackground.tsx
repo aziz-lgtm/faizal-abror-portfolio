@@ -19,19 +19,22 @@ export default function NetworkBackground() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    // NOTE: if this is ever true on a machine you expect to animate, it's the
+    // OS-level "reduce motion" accessibility setting, not a bug in this file.
+    // Windows: Settings > Accessibility > Visual effects > Animation effects
+    // macOS: System Settings > Accessibility > Display > Reduce motion
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let prefersReducedMotion = motionQuery.matches;
 
     let width = 0;
     let height = 0;
     let nodes: Node[] = [];
-    let animationId: number;
+    let animationId: number | null = null;
     const mouse = { x: -9999, y: -9999 };
 
     const DENSITY = 0.00009; // nodes per pixel
     const LINK_DISTANCE = 140; // max px distance to draw a connecting line
-    const MOUSE_RADIUS = 180; // px radius where lines glow brighter near cursor
+    const MOUSE_RADIUS = 260; // px radius where lines/nodes glow brighter near cursor
 
     function createNodes() {
       const count = Math.floor(width * height * DENSITY);
@@ -44,9 +47,22 @@ export default function NetworkBackground() {
       }));
     }
 
-    function resize() {
-      width = canvas!.width = window.innerWidth;
-      height = canvas!.height = window.innerHeight;
+    // Reads the CANVAS ELEMENT'S actual rendered box size (via ResizeObserver)
+    // rather than a one-off window.innerWidth/innerHeight snapshot. This is
+    // what fixes the mobile "gap at the bottom on scroll" bug: mobile browsers
+    // resize the visual viewport live as the address bar collapses/expands,
+    // and ResizeObserver fires for that, while a static innerHeight read at
+    // mount time does not.
+    function applySize(w: number, h: number) {
+      if (w === width && h === height) return;
+      width = w;
+      height = h;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas!.width = Math.floor(width * dpr);
+      canvas!.height = Math.floor(height * dpr);
+      canvas!.style.width = `${width}px`;
+      canvas!.style.height = `${height}px`;
+      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
       createNodes();
     }
 
@@ -63,6 +79,18 @@ export default function NetworkBackground() {
         }
       }
 
+      // soft additive glow halo centered on the cursor
+      if (mouse.x > -1000) {
+        const glow = ctx!.createRadialGradient(
+          mouse.x, mouse.y, 0,
+          mouse.x, mouse.y, MOUSE_RADIUS
+        );
+        glow.addColorStop(0, "rgba(34, 211, 238, 0.10)");
+        glow.addColorStop(1, "rgba(34, 211, 238, 0)");
+        ctx!.fillStyle = glow;
+        ctx!.fillRect(0, 0, width, height);
+      }
+
       // draw connecting lines
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
@@ -76,16 +104,18 @@ export default function NetworkBackground() {
           const midX = (a.x + b.x) / 2;
           const midY = (a.y + b.y) / 2;
           const distToMouse = Math.hypot(midX - mouse.x, midY - mouse.y);
-          const mouseBoost = Math.max(0, 1 - distToMouse / MOUSE_RADIUS);
+          const proximity = Math.max(0, 1 - distToMouse / MOUSE_RADIUS);
+          const mouseBoost = proximity * proximity; // quadratic falloff = punchier near cursor
 
           const baseAlpha = (1 - dist / LINK_DISTANCE) * 0.15;
-          const alpha = Math.min(0.55, baseAlpha + mouseBoost * 0.35);
+          const alpha = Math.min(0.9, baseAlpha + mouseBoost * 0.75);
+          const lineWidth = 1 + mouseBoost * 1.5;
 
           ctx!.beginPath();
           ctx!.moveTo(a.x, a.y);
           ctx!.lineTo(b.x, b.y);
           ctx!.strokeStyle = `rgba(34, 211, 238, ${alpha})`;
-          ctx!.lineWidth = 1;
+          ctx!.lineWidth = lineWidth;
           ctx!.stroke();
         }
       }
@@ -93,18 +123,18 @@ export default function NetworkBackground() {
       // draw nodes
       for (const n of nodes) {
         const distToMouse = Math.hypot(n.x - mouse.x, n.y - mouse.y);
-        const mouseBoost = Math.max(0, 1 - distToMouse / MOUSE_RADIUS);
-        const alpha = 0.4 + mouseBoost * 0.5;
+        const proximity = Math.max(0, 1 - distToMouse / MOUSE_RADIUS);
+        const mouseBoost = proximity * proximity;
+        const alpha = Math.min(1, 0.4 + mouseBoost * 0.9);
+        const drawRadius = n.radius * (1 + mouseBoost * 1.8);
 
         ctx!.beginPath();
-        ctx!.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+        ctx!.arc(n.x, n.y, drawRadius, 0, Math.PI * 2);
         ctx!.fillStyle = `rgba(103, 232, 249, ${alpha})`;
         ctx!.fill();
       }
 
-      if (!prefersReducedMotion) {
-        animationId = requestAnimationFrame(draw);
-      }
+      animationId = requestAnimationFrame(draw);
     }
 
     function handleMouseMove(e: MouseEvent) {
@@ -117,16 +147,38 @@ export default function NetworkBackground() {
       mouse.y = -9999;
     }
 
-    resize();
+    function handleMotionPreferenceChange(e: MediaQueryListEvent) {
+      prefersReducedMotion = e.matches;
+    }
+
+    // ResizeObserver on the canvas element itself tracks the TRUE rendered
+    // size, which updates correctly on mobile address-bar collapse/expand,
+    // orientation change, and desktop window resize alike — a single source
+    // of truth instead of separate window-resize + orientation listeners.
+    const resizeObserver = new ResizeObserver((entries) => {
+      const entry = entries[0];
+      if (!entry) return;
+      const { width: w, height: h } = entry.contentRect;
+      applySize(w, h);
+    });
+    resizeObserver.observe(canvas);
+
+    // Also track the visual viewport directly (covers iOS Safari cases where
+    // the layout viewport and visual viewport briefly disagree mid-scroll).
+    window.visualViewport?.addEventListener("resize", () => {
+      applySize(window.visualViewport!.width, window.visualViewport!.height);
+    });
+
     draw();
-    window.addEventListener("resize", resize);
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseleave", handleMouseLeave);
+    motionQuery.addEventListener("change", handleMotionPreferenceChange);
 
     return () => {
-      window.removeEventListener("resize", resize);
+      resizeObserver.disconnect();
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseleave", handleMouseLeave);
+      motionQuery.removeEventListener("change", handleMotionPreferenceChange);
       if (animationId) cancelAnimationFrame(animationId);
     };
   }, []);
@@ -135,6 +187,7 @@ export default function NetworkBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 -z-10 pointer-events-none bg-[#030712]"
+      style={{ width: "100%", height: "100%" }}
       aria-hidden="true"
     />
   );
