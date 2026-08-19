@@ -36,7 +36,7 @@ export default function ProjectsSection() {
   const [active, setActive] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="relative min-h-screen bg-transparent text-white py-24 px-6 md:px-12 lg:px-24">
+    <section id="projects" className="relative min-h-screen bg-transparent text-white mt-15 px-6 md:px-12 lg:px-24">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -46,11 +46,10 @@ export default function ProjectsSection() {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-3 sm:mt-1">
             {projects.title}
           </h2>
-          <p className="text-gray-400 text-lg mb-4">{projects.subtitle}</p>
-          <div className="w-24 h-[3px] bg-cyan-500 rounded-full shadow-[0_0_10px_#06b6d4]" />
+          <p className="text-slate-400 text-sm sm:text-base md:text-lg max-w-xl sm:text-left">{projects.subtitle}</p>
         </motion.div>
 
         {/* Grid */}
@@ -65,7 +64,7 @@ export default function ProjectsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
-                className="text-left flex flex-col bg-[#050b18]/90 backdrop-blur-md border border-white/10 hover:border-cyan-500/40 rounded-2xl p-8 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(6,182,212,0.12)]"
+                className="text-left -mt-5 flex flex-col bg-[#050b18]/90 backdrop-blur-md border border-white/10 hover:border-cyan-500/40 rounded-2xl p-8 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(6,182,212,0.12)]"
               >
                 <div className="flex items-start justify-between mb-6">
                   <div className="w-14 h-14 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
@@ -86,7 +85,7 @@ export default function ProjectsSection() {
                 </div>
 
                 <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                <p className="text-gray-400 text-sm sm:text-[17px] leading-relaxed mb-8">
                   {project.description}
                 </p>
 

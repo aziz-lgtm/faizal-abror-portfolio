@@ -28,11 +28,11 @@ export default function Footer() {
       className="relative bg-transparent text-white border-t border-white/5 py-24 px-6"
     >
       <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-3 sm:mt-1">
           {contact.title}
         </h2>
 
-        <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+        <p className="text-slate-400 text-sm sm:text-base md:text-lg max-w-xl sm:text-center mb-5 text-center">
           {contact.description}
         </p>
 

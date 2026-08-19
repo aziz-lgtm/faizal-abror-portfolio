@@ -75,7 +75,7 @@ export default function Career() {
             <CarouselContent className="-ml-4">
               {career.generalSkills.map((item, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <div className="h-full bg-slate-800/60 border border-slate-700/60 rounded-2xl p-5 flex flex-col items-center text-center gap-4 hover:border-indigo-500/50 transition-all duration-300 shadow-lg">
+                  <div className="h-full sm:bg-slate-800/60 sm:border sm:border-slate-700/60 sm:rounded-2xl p-5 flex flex-col items-center text-center gap-4 hover:border-indigo-500/50 transition-all duration-300 shadow-lg">
                     <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-700/50 shadow-inner">
                       {getSkillIcon(item.title)}
                     </div>
@@ -96,7 +96,7 @@ export default function Career() {
                       See Detail
                     </button>
                     <div className="inline-flex">
-                    <span className="mt-1 text-sm font-extralight text-indigo-300 border border-indigo-500/30 bg-indigo-500/10 px-4 py-2 rounded-full hover:bg-indigo-500/20 hover:border-indigo-500/50 transition-colors inline-flex sm:hidden items-center"><ChevronRight size={15} /><ChevronRight size={15} className="-ml-5" /><ChevronRight size={15} className="-ml-5" /></span>
+                    <span className="mt-1 text-sm font-extralight text-indigo-300 border border-indigo-500/30 bg-indigo-500/10 px-4 py-2 rounded-full hover:bg-indigo-500/20 hover:border-indigo-500/50 transition-colors inline-flex sm:hidden items-center"><span className="pr-2">swipe</span><ChevronRight size={15} /><ChevronRight size={15} className="-ml-5" /><ChevronRight size={15} className="-ml-5" /></span>
                     </div>
                   </div>
                 </CarouselItem>
@@ -132,8 +132,8 @@ export default function Career() {
                   <Code className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-white text-left md:text-left">{ds.title}</h3>
-                  <p className="text-xs text-indigo-200 text-center md:text-left">{ds.description}</p>
+                  <h3 className="font-bold text-lg text-white text-center sm:text-left">{ds.title}</h3>
+                  <p className="text-xs text-indigo-200 text-center sm:text-left">{ds.description}</p>
                 </div>
               </div>
 

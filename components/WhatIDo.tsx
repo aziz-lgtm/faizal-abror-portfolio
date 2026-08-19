@@ -27,7 +27,7 @@ export default function WhatIDoSection() {
   const activeCategory = whatIDoData.categories.find((c) => c.id === activeTab);
 
   return (
-    <section id="what-i-do" className="relative bg-transparent text-white py-24 px-6 md:px-12 lg:px-24">
+    <section id="what-i-do" className="relative bg-transparent text-white py-4 px-6 md:px-12 lg:px-24">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <motion.h2
@@ -35,7 +35,7 @@ export default function WhatIDoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-12"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-3 sm:mt-1 text-center"
         >
           {whatIDoData.title}
         </motion.h2>
@@ -49,13 +49,13 @@ export default function WhatIDoSection() {
               <button
                 key={tabId}
                 onClick={() => setActiveTab(tabId)}
-                className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium border transition-all duration-200 ${
+                className={`inline-flex h-8 p-1 text-[12px] gap-1 font-extralight items-center sm:gap-2 sm:px-6 sm:py-3 rounded-full sm:text-sm sm:font-medium border transition-all duration-200 ${
                   isActive
                     ? "bg-white/10 border-white/10 text-white"
                     : "border-transparent text-gray-400 hover:text-white hover:bg-white/5"
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? "text-cyan-400" : ""}`} />
+                <Icon className={`w-3 h-3 sm:w-4 sm:h-4 ${isActive ? "text-cyan-400 font-extralight" : ""}`} />
                 {tabLabels[tabId]}
               </button>
             );
@@ -109,7 +109,7 @@ export default function WhatIDoSection() {
                     <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-6">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <p className="text-gray-300 leading-relaxed">{point}</p>
+                    <p className="text-gray-300 font-light sm:font-medium  leading-relaxed">{point}</p>
                   </div>
                 );
               })}

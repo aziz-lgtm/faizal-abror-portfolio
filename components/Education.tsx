@@ -37,13 +37,12 @@ export default function Education() {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-3 sm:mt-1">
             {education.title}
           </h2>
-          <p className="text-gray-400 text-lg mb-4">
+          <p className="text-slate-400 text-sm sm:text-base md:text-lg max-w-xl sm:text-left">
             {education.subtitle}
           </p>
-          <div className="w-24 h-[3px] bg-cyan-500 rounded-full shadow-[0_0_10px_#06b6d4]" />
         </motion.div>
 
         {/* Timeline Container */}

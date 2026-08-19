@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { tech } from "@/data/techsStack";
+import { skillsData } from "@/data/techsStack";
 
 export default function TechStack() {
   return (
@@ -14,10 +15,10 @@ export default function TechStack() {
       {/* TITLE & SUBTITLE (Now safely stacked above) */}
       {/* ======================================= */}
       <div className="relative z-20 w-full max-w-6xl px-6 md:px-12 mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-3 sm:mt-1 text-left">
           {tech.title}
         </h1>
-        <p className="text-slate-300 text-base md:text-lg max-w-md">
+        <p className="text-slate-300 text-base md:text-lg max-w-mdtext-slate-400 text-sm sm:text-base md:text-lg max-w-md sm:text-left">
           {tech.subtitle}
         </p>
         <div className="w-16 h-1 bg-cyan-500 mt-4 rounded-full" />
@@ -29,19 +30,19 @@ export default function TechStack() {
       <div className="relative flex items-center justify-center w-full h-[600px] md:h-[700px] max-w-6xl">
         
         {/* CENTER CORE: Laptop Logo */}
-        <div className="absolute z-10 flex items-center justify-center w-20 h-20 bg-slate-900/90 backdrop-blur-md border border-cyan-500/50 rounded-full shadow-[0_0_30px_10px_rgba(6,182,212,0.4)]">
+        <div className="absolute z-10 flex items-center justify-center w-10 h-10 sm:w-20 sm:h-20 bg-slate-900/90 backdrop-blur-md border border-cyan-500/50 rounded-full shadow-[0_0_30px_10px_rgba(6,182,212,0.4)]">
           <Image 
             src="/tech-stack/laptop.png" 
             alt="Laptop Logo" 
-            width={48} 
-            height={48} 
-            className="object-contain" 
+            width={30} 
+            height={30} 
+            className="object-contain sm:w-12 sm:h-12" 
           />
         </div>
 
         {/* 3RD (INNER) CIRCLE: TypeScript & JavaScript */}
         <motion.div
-          className="absolute w-[220px] h-[220px] border border-cyan-900/40 rounded-full"
+          className="absolute w-30 h-30 sm:w-[220px] sm:h-[220px] border border-cyan-900/40 rounded-full"
           animate={{ rotate: 360 }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         >
@@ -64,7 +65,7 @@ export default function TechStack() {
 
         {/* 2ND (MIDDLE) CIRCLE: Tailwind & React */}
         <motion.div
-          className="absolute w-[380px] h-[380px] border border-cyan-900/30 rounded-full"
+          className="absolute w-50 h-50 sm:w-[380px] sm:h-[380px] border border-cyan-900/30 rounded-full"
           animate={{ rotate: -360 }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
         >
@@ -87,7 +88,7 @@ export default function TechStack() {
 
         {/* 1ST (OUTER) CIRCLE: HTML & Git */}
         <motion.div
-          className="absolute w-[540px] h-[540px] border border-cyan-900/20 rounded-full"
+          className="absolute w-70 h-70 sm:w-[540px] sm:h-[540px] border border-cyan-900/20 rounded-full"
           animate={{ rotate: 360 }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
         >
@@ -109,6 +110,47 @@ export default function TechStack() {
         </motion.div>
 
       </div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900 via-[#0B0F19] to-[#0B0F19]" />
+      
+            <div className="relative z-10 w-full max-w-4xl mx-auto px-6 md:px-12">
+      
+              {/* The List of Skill Bars */}
+              <div className="flex flex-col gap-8">
+                {skillsData.map((skill, index) => (
+                  <div key={skill.name} className="w-full">
+                    
+                    {/* Label and Percentage Text */}
+                    <div className="flex justify-between items-center mb-3">
+                      <span className="text-white font-medium text-lg tracking-wide">
+                        {skill.name}
+                      </span>
+                      <span className="text-slate-200 font-semibold">
+                        {skill.percentage}%
+                      </span>
+                    </div>
+      
+                    {/* Progress Bar Track */}
+                    <div className="w-full h-3 md:h-4 bg-slate-800/80 rounded-full overflow-hidden border border-slate-700/50 shadow-inner">
+                      
+                      {/* Progress Bar Fill */}
+                      <motion.div
+                        className="h-full bg-cyan-400 rounded-full shadow-[0_0_12px_2px_rgba(34,211,238,0.6)]"
+                        initial={{ width: 0 }} 
+                        whileInView={{ width: `${skill.percentage}%` }} 
+                        viewport={{ once: true, margin: "-50px" }} 
+                        transition={{ 
+                          duration: 1.5, 
+                          delay: index * 0.1, 
+                          ease: "easeOut" 
+                        }}
+                      />
+                    </div>
+                    
+                  </div>
+                ))}
+              </div>
+            </div>
+       
     </section>
   );
 }
