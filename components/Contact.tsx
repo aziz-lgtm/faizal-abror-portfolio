@@ -32,7 +32,7 @@ export default function Footer() {
           {contact.title}
         </h2>
 
-        <p className="text-slate-400 text-sm sm:text-base md:text-lg max-w-xl mx-auto">
+        <p className="text-slate-400 text-sm sm:text-base md:text-lg max-w-xl mx-auto mb-5">
           {contact.description}
         </p>
 
