@@ -163,12 +163,6 @@ export default function NetworkBackground() {
     });
     resizeObserver.observe(canvas);
 
-    // Also track the visual viewport directly (covers iOS Safari cases where
-    // the layout viewport and visual viewport briefly disagree mid-scroll).
-    window.visualViewport?.addEventListener("resize", () => {
-      applySize(window.visualViewport!.width, window.visualViewport!.height);
-    });
-
     draw();
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseleave", handleMouseLeave);
