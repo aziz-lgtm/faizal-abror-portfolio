@@ -60,8 +60,6 @@ export default function NetworkBackground() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas!.width = Math.floor(width * dpr);
       canvas!.height = Math.floor(height * dpr);
-      canvas!.style.width = `${width}px`;
-      canvas!.style.height = `${height}px`;
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
       createNodes();
     }
