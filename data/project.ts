@@ -3,12 +3,25 @@ export const projects = {
   subtitle: "Lists of selected projects I made from the bootcamp I enrolled",
   listOfProjects: [
     {
+      title: "Testimonial Carousel Block",
+      status: "Completed",
+      role: "Frontend Engineer",
+      description:
+        "A custom Gutenberg block for WordPress with inline editing, color/timing controls, and dynamic PHP rendering.",
+      stack: [
+        "WordPress", "Gutenberg Block   API", "PHP", "JavaScript", "SCSS"
+      ],
+      see: "https://github.com/aziz-lgtm/tetimonial-carousel-block",
+    },
+    {
       title: "Company Profile",
       status: "Completed",
       role: "Frontend Engineer",
       description:
         "A modern, responsive company profile web application designed for a digital transformation agency. Built to highlight key IT services, client testimonials, and featured projects with an intuitive UI and optimized web performance.",
-      stack: ["Tailwind CSS", "React", "TypeScript", "Framer Motion"],
+      stack: [
+        "Tailwind CSS", "React", "TypeScript", "Framer Motion"
+      ],
       see: "https://challenge-8-aziz-lgtm.vercel.app",
     },
     {
