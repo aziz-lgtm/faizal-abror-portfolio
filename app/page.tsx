@@ -13,11 +13,11 @@ function App() {
   return (
     <section className=''>
     <Hero />
-    <Career />
-    <Education />
-    <WhatIDo />
     <Projects />
     <TechStack />
+    <WhatIDo />
+    <Career />
+    <Education />
     <Contact />
     </section>
   );

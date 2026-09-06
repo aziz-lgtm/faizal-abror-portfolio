@@ -14,6 +14,16 @@ export const projects = {
       see: "https://github.com/aziz-lgtm/tetimonial-carousel-block",
     },
     {
+      title: "Social Media App",
+      status: "Completed",
+      role: "Frontend Engineer",
+      description:
+        "A social media application designed to let users share photos, view dynamic feeds, and engage with content",
+      stack: ["Tailwind Css", "TypeScript", "React", "Shadcn", "Framer Motion", "Next.js"],
+      see: "https://socialitagram-git-main-aziz-lgtms-projects.vercel.app/",
+      seeFigma: "https://www.figma.com/design/5qL4zS8bo8geBn2aJfa239/Social-Media?node-id=41411-8567&p=f&t=7QAsog4uJJ48RVbN-0",
+    },
+    {
       title: "Company Profile",
       status: "Completed",
       role: "Frontend Engineer",
@@ -23,6 +33,7 @@ export const projects = {
         "Tailwind CSS", "React", "TypeScript", "Framer Motion"
       ],
       see: "https://challenge-8-aziz-lgtm.vercel.app",
+      seeFigma: "https://www.figma.com/design/AmMiYJmlPXNrKmMDDwTw1B/Company-Profile?t=Lt86spjTI5Y8wd08-0",
     },
     {
       title: "Movie Explorer App",
@@ -39,6 +50,7 @@ export const projects = {
         "Framer Motion",
       ],
       see: "https://faizalflix.vercel.app",
+      seeFigma: "https://www.figma.com/design/PjR3Adxi8eZbS2cmdPuG52/Front-End-Developer-Test---Movie-Explorer-App?node-id=8411-143671&p=f&t=721O0IOpjESkv9Ho-0",
     },
     {
       title: "Culinary Discovery & Restaurant App",
@@ -56,15 +68,6 @@ export const projects = {
         "An intuitive library management and book browsing platform designed to help users explore books, search by categories, and check stock availability",
       stack: ["Tailwind Css", "TypeScript", "React", "Shadcn", "Framer Motion", "Next.js"],
       see: "https://book-hub-dusky.vercel.app/",
-    },
-    {
-      title: "Social Media App",
-      status: "Completed",
-      role: "Frontend Engineer",
-      description:
-        "A social media application designed to let users share photos, view dynamic feeds, and engage with content",
-      stack: ["Tailwind Css", "TypeScript", "React", "Shadcn", "Framer Motion", "Next.js"],
-      see: "https://socialitagram-git-main-aziz-lgtms-projects.vercel.app/",
     },
   ],
 };

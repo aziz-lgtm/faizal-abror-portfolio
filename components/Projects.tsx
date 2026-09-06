@@ -182,6 +182,21 @@ export default function ProjectsSection() {
                     <div className="font-semibold text-gray-500">Not deployed</div>
                   )}
                 </div>
+                <div className="col-span-2 rounded-xl border border-white/10 bg-white/5 p-4">
+                  <div className="text-xs text-gray-500 mb-1">See the Figma Design</div>
+                  {active.see ? (
+                    <a
+                      href={active.seeFigma}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold text-cyan-400 hover:text-cyan-300 transition-colors inline-flex items-center gap-1"
+                    >
+                      Visit site <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  ) : (
+                    <div className="font-semibold text-gray-500">Not Available Yet</div>
+                  )}
+                </div>
               </div>
             </motion.div>
           </motion.div>
