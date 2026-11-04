@@ -7,9 +7,9 @@ import { MapPin, Globe } from "lucide-react";
 
 export default function HeroSection(): JSX.Element {
   return (
-    <section id="about" className="py-20 lg:pt-10 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+    <section id="about" className="pt-10 pb-20 lg:pt-10 lg:py-32 px-4 sm:px-6 sm:pt-10 lg:px-8 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
       <motion.div
-        initial={{ opacity: 0, x: -30 }}
+        initial={{ opacity: -2, x: -410 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
         className="flex-1 space-y-6 text-center lg:text-left"
@@ -17,10 +17,10 @@ export default function HeroSection(): JSX.Element {
         <span className="inline-block text-sm font-semibold px-3 py-1 bg-primary/10 text-primary rounded-full">
           {hero.greeting}
         </span>
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
           {hero.title}
         </h1>
-        <p className="text-muted-foreground md:font-medium sm:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
+        <p className="text-muted-foreground md:font-medium text-md font-medium sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
           {hero.subtitle}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 text-sm text-muted-foreground font-medium">
@@ -45,7 +45,7 @@ export default function HeroSection(): JSX.Element {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
+        initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
         className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl"

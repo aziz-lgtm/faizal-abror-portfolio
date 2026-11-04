@@ -12,10 +12,11 @@ export default function WhatIDo() {
 
   return (
     <section id="what-i-do" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         className="text-center mb-12"
       >
         <h2 className="text-3xl sm:text-4xl font-bold mb-4">{whatIDoData.title}</h2>
@@ -25,7 +26,10 @@ export default function WhatIDo() {
       </motion.div>
 
       {/* Tabs */}
-      <div className="flex justify-center mb-8 gap-2">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }} className="flex justify-center mb-8 gap-2">
         {whatIDoData.categories.map((cat) => (
           <button
             key={cat.id}
@@ -39,14 +43,15 @@ export default function WhatIDo() {
             {cat.title}
           </button>
         ))}
-      </div>
+      </motion.div>
 
       {/* Tab Content */}
       <motion.div
         key={activeTab}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
+        viewport={{ once: false }}
+        transition={{ duration: 1.1 }}
         className="max-w-3xl mx-auto bg-card border border-border rounded-2xl p-6 sm:p-8 shadow-sm mb-12"
       >
         <ul className="space-y-4">
@@ -60,7 +65,10 @@ export default function WhatIDo() {
       </motion.div>
 
       {/* Certificates Section */}
-      <div className="max-w-3xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }} className="max-w-3xl mx-auto">
         <h3 className="text-xl font-bold mb-6 text-center">Certifications</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {whatIDoData.certificates.map((cert) => (
@@ -77,7 +85,7 @@ export default function WhatIDo() {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Certificate Modal */}
       <AnimatePresence>
@@ -87,6 +95,7 @@ export default function WhatIDo() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
+              viewport={{ once: false }}
               className="bg-card border border-border rounded-2xl max-w-md w-full p-6 relative shadow-xl"
             >
               <button

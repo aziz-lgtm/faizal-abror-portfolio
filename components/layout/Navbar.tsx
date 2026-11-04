@@ -6,14 +6,33 @@ import { Menu, X } from "lucide-react";
 export default function Navbar(): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const navLinks: { name: string; href: string }[] = [
-    { name: "About", href: "#about" },
-    { name: "What I Do", href: "#what-i-do" },
-    { name: "Projects", href: "#projects" },
-    { name: "Journey", href: "#career" },
-    { name: "Tech Stacks", href: "#tech" },
-    { name: "Contact", href: "#contact" },
+  const navLinks: { name: string; href: string; id: string }[] = [
+    { name: "About", href: "#about", id: "about" },
+    { name: "What I Do", href: "#what-i-do", id: "what-i-do" },
+    { name: "Projects", href: "#projects", id: "projects" },
+    { name: "Journey", href: "#career", id: "career" },
+    { name: "Tech Stacks", href: "#tech", id: "tech" },
+    { name: "Contact", href: "#contact", id: "contact" },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    setIsOpen(false); // Close mobile/tablet menu first
+
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const navbarHeight = 70; // Offset for your sticky navbar height
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 150); // Small delay to let the menu collapse layout shift settle
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -28,14 +47,16 @@ export default function Navbar(): JSX.Element {
             <a
               key={link.name}
               href={link.href}
-              className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm"
+              onClick={(e) => handleNavClick(e, link.id)}
+              className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm cursor-pointer"
             >
               {link.name}
             </a>
           ))}
           <a
             href="#contact"
-            className="px-4 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:opacity-90 transition-opacity"
+            onClick={(e) => handleNavClick(e, "contact")}
+            className="px-4 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
           >
             Let&apos;s Talk
           </a>
@@ -64,16 +85,16 @@ export default function Navbar(): JSX.Element {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block text-muted-foreground hover:text-foreground font-medium text-base py-1"
+                onClick={(e) => handleNavClick(e, link.id)}
+                className="block text-muted-foreground hover:text-foreground font-medium text-base py-1 cursor-pointer"
               >
                 {link.name}
               </a>
             ))}
             <a
               href="#contact"
-              onClick={() => setIsOpen(false)}
-              className="block w-full text-center px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg"
+              onClick={(e) => handleNavClick(e, "contact")}
+              className="block w-full text-center px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg cursor-pointer"
             >
               Let&apos;s Talk
             </a>

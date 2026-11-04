@@ -2,7 +2,7 @@ import { HeroData, CareerData, ContactData, EducationData, ProjectsData, TechDat
 
 export const hero: HeroData = {
   greeting: "Hey, I'm Faizal Abror",
-  title: "Building fast & interactive web experiences.",
+  title: "Building Fast & Interactive Web Application Experiences.",
   subtitle: "I am a Software Engineer focusing on fullstack web development who thrives on turning complex technical challenges into seamless digital experiences. With a strong foundation in pixel-perfect user interfaces and end-to-end systems, I adapt rapidly to new techs and paradigms to deliver exceptional web solutions.",
   description: "Available remote full-time or contract",
   workLocation: "Anywhere",
