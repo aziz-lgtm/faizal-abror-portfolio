@@ -67,7 +67,7 @@ export default function ProjectsSection() {
                   onClick={() => setSelectedProject(proj)}
                   className="text-sm font-semibold text-primary hover:underline"
                 >
-                  Read More →
+                  Read More
                 </button>
                 <div className="flex space-x-3">
                   {proj.see && (
