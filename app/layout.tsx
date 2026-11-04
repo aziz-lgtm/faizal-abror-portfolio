@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Figtree } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import NetworkBackground from "@/components/NetworkBackground";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 
 const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
 
@@ -33,11 +31,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </head>
       <body className="relative min-h-full w-full flex flex-col ">
-
-        <NetworkBackground />
         <Navbar />
         {children}
-        <Footer />
       </body>
     </html>
   );

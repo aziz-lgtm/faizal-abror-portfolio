@@ -1,24 +1,24 @@
 
-import Contact from '@/components/Contact';
-import Hero from '@/components/Hero';
-import Education from '@/components/Education';
-import Projects from '@/components/Projects';
-import WhatIDo from '@/components/WhatIDo'
-import TechStack from '@/components/TechStack'
-import Career from '@/components/Career'
-
-
+import Hero from '@/components/Hero'
+import Project from '@/components/Project';
+import WhatIDo from '@/components/WhatIDo';
+import CareerSection from '@/components/Career';
+import EducationSection from '@/components/Education';
+import TechSection from '@/components/Tech';
+import ValuePropsSection from '@/components/Value';
+import ContactSection from '@/components/Contac';
 
 function App() {
   return (
     <section className=''>
-    <Hero />
-    <Projects />
-    <TechStack />
-    <WhatIDo />
-    <Career />
-    <Education />
-    <Contact />
+      <Hero />
+      <WhatIDo />
+    <CareerSection />
+    <EducationSection />
+    <TechSection />
+    <Project />
+    <ValuePropsSection />
+    <ContactSection />
     </section>
   );
 }

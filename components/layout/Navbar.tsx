@@ -1,115 +1,85 @@
-'use client'
-import { useState } from "react";
-import Image from 'next/image';
+"use client";
+import { JSX, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
-const NAV_ITEMS = [
-  { id: "hero", label: "Home" },
-  { id: "what-i-do", label: "What I Do" },
-  { id: "projects", label: "Projects" },
-  { id: "tech", label: "Tech Stack" },
-  { id: "contact", label: "Contact" },
-];
+export default function Navbar(): JSX.Element {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-export default function Navbar() {
-  const [active, setActive] = useState("hero");
-  const [menuOpen, setMenuOpen] = useState(false);
-
-    const scrollToSection = (id: string) => {
-    setActive(id);
-    setMenuOpen(false);
-
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    const navbarOffset = 96; // adjust to match your navbar's actual height + spacing
-    const y = el.getBoundingClientRect().top + window.scrollY - navbarOffset;
-
-    window.scrollTo({ top: y, behavior: "smooth" });
-  };
+  const navLinks: { name: string; href: string }[] = [
+    { name: "About", href: "#about" },
+    { name: "What I Do", href: "#what-i-do" },
+    { name: "Projects", href: "#projects" },
+    { name: "Journey", href: "#career" },
+    { name: "Tech Stacks", href: "#tech" },
+    { name: "Contact", href: "#contact" },
+  ];
 
   return (
-    <section className="fixed top-4 left-0 right-0 z-50 px-4">
-      <nav className="mx-auto max-w-6xl rounded-2xl border border-white/10 bg-[#0b0f1f]/80 backdrop-blur-md px-5 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
-        <div className="flex items-center justify-between gap-6">
-          {/* Left: avatar + name */}
-          <div className="flex items-center gap-3 shrink-0">
-            <Image
-              alt="Faizal Abror Picture"
-              src="/me/faizal-abror.jpg"
-              width={36}
-              height={36}
-              className="rounded-full object-cover border border-white/10"
-            />
-            <span className="hidden xl:inline xl:text-xl xl:font-bold xl:tracking-tight xl:text-white
-            md:inline md:text-xl md:font-bold md:tracking-tight md:text-white">
-              Faizal Abror
-            </span>
-          </div>
+    <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="#" className="font-bold text-xl text-foreground">
+          Faizal<span className="text-primary"> Abror</span>
+        </a>
 
-          {/* Right: nav links (desktop, md and up) */}
-          <div className="hidden md:flex items-center gap-1 rounded-full">
-            {NAV_ITEMS.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  active === item.id
-                    ? "bg-white/10 text-white"
-                    : "text-gray-400 hover:text-white hover:bg-white/5"
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Hamburger button (mobile/sm, hidden md and up) */}
-          <button
-            onClick={() => setMenuOpen((prev) => !prev)}
-            className="md:hidden inline-flex items-center justify-center rounded-full p-2 text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
-            aria-label="Toggle menu"
-            aria-expanded={menuOpen}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center space-x-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm"
             >
-              {menuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+              {link.name}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="px-4 py-2 bg-primary text-primary-foreground text-sm font-medium rounded-lg hover:opacity-90 transition-opacity"
+          >
+            Let&apos;s Talk
+          </a>
         </div>
 
-        {/* Mobile dropdown menu */}
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            menuOpen ? "max-h-96 opacity-100 mt-3" : "max-h-0 opacity-0"
-          }`}
+        {/* Mobile Hamburger Button (<lg) */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="lg:hidden p-2 text-foreground focus:outline-none cursor-pointer"
+          aria-label="Toggle Menu"
         >
-          <div className="flex flex-col gap-1 pb-1">
-            {NAV_ITEMS.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
-                  active === item.id
-                    ? "bg-white/10 text-white"
-                    : "text-gray-400 hover:text-white hover:bg-white/5"
-                }`}
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden bg-background border-b border-border px-4 pt-2 pb-6 space-y-4"
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="block text-muted-foreground hover:text-foreground font-medium text-base py-1"
               >
-                {item.label}
-              </button>
+                {link.name}
+              </a>
             ))}
-          </div>
-        </div>
-      </nav>
-    </section>
+            <a
+              href="#contact"
+              onClick={() => setIsOpen(false)}
+              className="block w-full text-center px-4 py-2 bg-primary text-primary-foreground font-medium rounded-lg"
+            >
+              Let&apos;s Talk
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
   );
 }

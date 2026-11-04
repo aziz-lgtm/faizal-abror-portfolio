@@ -1,8 +1,9 @@
+"use client";
+import { motion } from "framer-motion";
+import { contact } from "@/data/data";
 import { Mail } from "lucide-react";
-import { contact } from "@/data/contact";
+import { JSX } from "react/jsx-runtime";
 
-// Lucide dropped brand/logo icons (Github, Linkedin, etc.) for trademark
-// reasons, so these are plain inline SVGs using currentColor to stay themeable.
 function GithubIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -19,53 +20,48 @@ function LinkedinIcon({ className }: { className?: string }) {
   );
 }
 
-export default function Footer() {
-  const links = contact.link[0];
+export default function ContactSection(): JSX.Element {
+  const linkInfo = contact.link[0];
 
   return (
-    <section
-      id="contact"
-      className="relative bg-transparent text-white border-t border-white/5 py-24 px-6"
-    >
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-white mb-3 sm:mt-1">
-          {contact.title}
-        </h2>
-
-        <p className="text-slate-400 text-sm sm:text-base md:text-lg max-w-xl mx-auto mb-5">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="bg-card border border-border rounded-3xl p-8 sm:p-12 shadow-sm"
+      >
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">{contact.title}</h2>
+        <p className="text-muted-foreground max-w-xl mx-auto text-sm sm:text-base mb-8">
           {contact.description}
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4">
           <a
-            href={`mailto:${links.email}`}
-            className="inline-flex items-center gap-2 bg-cyan-400 text-black font-bold px-7 py-3.5 rounded-full shadow-[0_0_25px_rgba(34,211,238,0.5)] hover:shadow-[0_0_35px_rgba(34,211,238,0.75)] hover:bg-cyan-300 transition-all duration-200"
+            href={`mailto:${linkInfo.email}`}
+            className="px-6 py-3 bg-primary text-primary-foreground font-medium rounded-xl hover:opacity-90 transition-opacity flex items-center gap-2 text-sm"
           >
-            <Mail className="w-5 h-5" />
-            Say Hello
+            <Mail size={18} /> Email Me
           </a>
-
           <a
-            href={links.linkedin}
+            href={linkInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-white/15 text-white font-semibold px-7 py-3.5 rounded-full hover:border-cyan-400/50 hover:bg-white/5 transition-all duration-200"
+            className="px-6 py-3 border border-border text-foreground font-medium rounded-xl hover:bg-muted transition-colors flex items-center gap-2 text-sm"
           >
-            <LinkedinIcon className="w-5 h-5" />
-            LinkedIn
+            <LinkedinIcon className="w-5 h-5" /> LinkedIn
           </a>
-
           <a
-            href={links.github}
+            href={linkInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-white/15 text-white font-semibold px-7 py-3.5 rounded-full hover:border-cyan-400/50 hover:bg-white/5 transition-all duration-200"
+            className="px-6 py-3 border border-border text-foreground font-medium rounded-xl hover:bg-muted transition-colors flex items-center gap-2 text-sm"
           >
-            <GithubIcon className="w-5 h-5" />
-            GitHub
+            <GithubIcon className="w-5 h-5" /> GitHub
           </a>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
