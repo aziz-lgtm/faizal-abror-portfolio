@@ -12,17 +12,20 @@ export default function Navbar(): JSX.Element {
     { name: "Projects", href: "#projects", id: "projects" },
     { name: "Journey", href: "#career", id: "career" },
     { name: "Tech Stacks", href: "#tech", id: "tech" },
-    { name: "Contact", href: "#contact", id: "contact" },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    setIsOpen(false); // Close mobile/tablet menu first
+    setIsOpen(false); // Close mobile menu
 
+    // Wait 350ms to ensure the mobile menu exit animation (300ms) has completely finished
     setTimeout(() => {
       const element = document.getElementById(id);
-      if (element) {
-        const navbarHeight = 70; // Offset for your sticky navbar height
+      const navElement = document.querySelector("nav"); // Target the sticky nav container
+
+      if (element && navElement) {
+        // Dynamically grab the exact height of the navbar after it has collapsed
+        const navbarHeight = navElement.getBoundingClientRect().height;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
 
@@ -31,7 +34,7 @@ export default function Navbar(): JSX.Element {
           behavior: "smooth",
         });
       }
-    }, 150); // Small delay to let the menu collapse layout shift settle
+    }, 350); 
   };
 
   return (
@@ -79,6 +82,7 @@ export default function Navbar(): JSX.Element {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
             className="lg:hidden bg-background border-b border-border px-4 pt-2 pb-6 space-y-4"
           >
             {navLinks.map((link) => (
